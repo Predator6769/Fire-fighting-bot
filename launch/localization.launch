@@ -1,0 +1,8 @@
+<launch>
+  <node name="odom_ticks" pkg="ros_fire_fighting_rover" type="OdometryGenerator.py" output="screen"/> 
+  <node name="imu" pkg="ros_fire_fighting_rover" type="ImuSensorData.py" output="screen"/> 
+  <!-- Run the EKF Localization node -->
+  <!--<node pkg="robot_localization" type="ekf_localization_node" name="ekf_localization">
+    <rosparam command="load" file="$(find ros_fire_fighting_rover)/config/ekf_localization.yaml"/>
+  </node>-->
+</launch>
