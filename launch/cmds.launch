@@ -1,6 +1,6 @@
 <launch> 
-  <node name="center_based_on_fire" pkg="ros_fire_fighting_rover" type="CenterBotCamera.py" output="screen"/>
+  <!--<node name="center_based_on_fire" pkg="ros_fire_fighting_rover" type="CenterBotCamera.py" output="screen"/>-->
   <!--<node name="flame_sensor" pkg="ros_fire_fighting_rover" type="FlameDetection.py" output="screen"/>-->
-  <!--<node name="Object_avoidance" pkg="ros_fire_fighting_rover" type="ObjectAvoid.py" output="screen"/>--> 
+  <node name="Object_avoidance" pkg="ros_fire_fighting_rover" type="ObjectAvoid.py" output="screen"/>
   <node name="final_cmd" pkg="ros_fire_fighting_rover" type="FinalCmd.py" output="screen"/>
 </launch>

@@ -1,8 +1,10 @@
 <launch>
   <node name="odom_ticks" pkg="ros_fire_fighting_rover" type="OdometryGenerator.py" output="screen"/> 
   <node name="imu" pkg="ros_fire_fighting_rover" type="ImuSensorData.py" output="screen"/> 
+  <node name="mapServer" pkg="map_server" type="map_server" args="$(ros_fire_fighting_rover)/maps/blank_map.yaml"/>
+  <node name="tf_mapOdom" pkg="tf" type="static_transform_publisher" args="0.0 0.0 0.0 0.0 0.0 0.0 map odom 100"/>
   <!-- Run the EKF Localization node -->
-  <!--<node pkg="robot_localization" type="ekf_localization_node" name="ekf_localization">
+  <node pkg="robot_localization" type="ekf_localization_node" name="ekf_localization">
     <rosparam command="load" file="$(find ros_fire_fighting_rover)/config/ekf_localization.yaml"/>
-  </node>-->
+  </node>
 </launch>

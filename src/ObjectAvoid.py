@@ -1,3 +1,4 @@
+#!/usr/bin/python3
 import RPi.GPIO as GPIO
 import time
 from geometry_msgs.msg import Twist
@@ -11,11 +12,9 @@ GPIO_TRIGGER1 = 18
 GPIO_ECHO1 = 24
 GPIO_TRIGGER2 = 21
 GPIO_ECHO2 = 22
-GPIO_TRIGGER2 = 21
-GPIO_ECHO2 = 22
 GPIO_TRIGGER3 = 23
 GPIO_ECHO3 = 25
-  
+GPIO.setwarnings(False)  
 #set GPIO direction (IN / OUT)
 GPIO.setup(GPIO_TRIGGER1, GPIO.OUT)
 GPIO.setup(GPIO_ECHO1, GPIO.IN)
@@ -61,19 +60,19 @@ if __name__ == '__main__':
         dist1 = distance(GPIO_TRIGGER1,GPIO_ECHO1)
         dist2 = distance(GPIO_TRIGGER2,GPIO_ECHO2)
         dist3 = distance(GPIO_TRIGGER3,GPIO_ECHO3)
+        #print(dist1,dist3)
         if dist2 <=10 and dist1<=dist3 :
-            twist.angular.z = -1.0
-            twist.linear.x = 0
+             twist.angular.z = -1.0
+             twist.linear.x = 0
         elif dist2 <=10 and dist1>=dist3:
-            twist.angular.z = 1.0
-            twist.linear.x = 0
+             twist.angular.z = 1.0
+             twist.linear.x = 0
         elif dist3<=10 or dist1<=10:
-            twist.linear.x = 0.1
-            twist.angular.z = 0
+             twist.linear.x = 0.1
+             twist.angular.z = 0
         else:    
-            twist.linear.x = 0
-            twist.angular.z = 0
+             twist.linear.x = 0
+             twist.angular.z = 0
         pub.publish(twist)
-        time.sleep(0.11)
- 
+        time.sleep(0.11) 
         # Reset by pressing CTRL + C

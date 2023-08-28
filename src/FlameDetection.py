@@ -1,3 +1,4 @@
+#!/usr/bin/python3
 import rospy
 from geometry_msgs.msg import Twist
 import RPi.GPIO as GPIO
@@ -17,5 +18,6 @@ if __name__ == '__main__':
         else:
             twist.linear.x = 0
             pub.publish(twist)
+            print("fire")
             #water pump code goes here   
         
